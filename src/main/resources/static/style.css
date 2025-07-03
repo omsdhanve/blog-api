@@ -1,194 +1,228 @@
 /* 🌐 Base Styles */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    padding: 20px;
-    margin: 0;
-    color: #333;
+  font-family: "Segoe UI", sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+  margin: 0;
+  color: #333;
 }
 
 /* 🧱 Main Container */
 .container {
-    max-width: 700px;
-    margin: auto;
-    background: #fff;
-    padding: 25px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    border-radius: 8px;
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 /* 📢 Headings */
-h1, h2 {
-    text-align: center;
-    color: #007bff;
-    margin-bottom: 20px;
+h1,
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
 }
 
 /* 🌙 Dark Mode Toggle Icon beside h1 */
 h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .dark-toggle {
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    color: #007bff;
-    transition: transform 0.2s ease;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #007bff;
+  transition: transform 0.2s ease;
 }
 
 .dark-toggle:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 body.dark .dark-toggle {
-    color: #ffd700;
+  color: #ffd700;
 }
 
 /* 📝 Form Inputs */
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    resize: vertical;
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 /* ✅ Submit Button */
 button[type="submit"] {
-    margin-top: 15px;
-    padding: 12px;
-    width: 100%;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  margin-top: 15px;
+  padding: 12px;
+  width: 100%;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background: #0056b3;
+  background: #0056b3;
 }
 
 /* 🧾 Blog Cards */
 .blog-card {
-    margin-top: 20px;
-    padding: 15px;
-    border-left: 4px solid #007bff;
-    background: #f1f1f1;
-    border-radius: 5px;
+  margin-top: 20px;
+  padding: 15px;
+  border-left: 4px solid #007bff;
+  background: #f1f1f1;
+  border-radius: 5px;
 }
 
 /* 🛠️ Actions (Edit/Delete Buttons) */
 .actions {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .actions button {
-    flex: 1;
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+  flex: 1;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .actions .delete-btn {
-    background: #dc3545;
+  background: #dc3545;
 }
 
 .actions button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 /* 📱 Responsive Design */
 @media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
+  .container {
+    padding: 15px;
+  }
 
-    input, textarea, button {
-        font-size: 14px;
-    }
+  input,
+  textarea,
+  button {
+    font-size: 14px;
+  }
 
-    .actions {
-        flex-direction: column;
-    }
+  .actions {
+    flex-direction: column;
+  }
 
-    .actions button {
-        width: 100%;
-    }
+  .actions button {
+    width: 100%;
+  }
 
-    h1 {
-        flex-direction: column;
-    }
+  h1 {
+    flex-direction: column;
+  }
 }
 
 /* 🔔 Toast Message */
 .toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 6px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
 }
 .toast.show {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* 💫 Blog Card Animation */
 .blog-card.animate {
-    animation: fadeSlide 0.5s ease-in;
+  animation: fadeSlide 0.5s ease-in;
 }
 @keyframes fadeSlide {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 🌙 Dark Mode Styling */
 body.dark {
-    background: #121212;
-    color: #eee;
+  background: #121212;
+  color: #eee;
 }
 body.dark .container {
-    background: #1e1e1e;
+  background: #1e1e1e;
 }
 body.dark input,
 body.dark textarea {
-    background: #2a2a2a;
-    color: #fff;
-    border: 1px solid #555;
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #555;
 }
 body.dark .blog-card {
-    background: #2c2c2c;
+  background: #2c2c2c;
 }
 body.dark .toast {
-    background: #555;
+  background: #555;
+}
+/* 🔍 Search Blog by ID */
+#searchSection {
+  margin: 25px 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#searchId {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+}
+
+#searchBtn {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  background-color: #17a2b8;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#searchBtn:hover {
+  background-color: #138496;
 }

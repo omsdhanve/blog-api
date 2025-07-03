@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-    <h1>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
         📝 Blog Dashboard
-        <button id="darkToggle" class="dark-toggle" title="Toggle Dark Mode">🌙</button>
-    </h1>
+        <button id="darkToggle" class="dark-toggle" title="Toggle Dark Mode">
+          🌙
+        </button>
+      </h1>
 
-    <form id="blogForm">
-        <input type="hidden" id="blogId">
+      <form id="blogForm">
+        <input type="hidden" id="blogId" />
 
         <div class="form-group">
-            <input type="text" id="title" placeholder="Blog Title" required>
+          <input type="text" id="title" placeholder="Blog Title" required />
         </div>
         <div class="form-group">
-            <input type="text" id="author" placeholder="Author Name" required>
+          <input type="text" id="author" placeholder="Author Name" required />
         </div>
         <div class="form-group">
-            <textarea id="content" placeholder="Content..." required></textarea>
+          <textarea id="content" placeholder="Content..." required></textarea>
         </div>
         <button type="submit">Save Blog</button>
-    </form>
+      </form>
 
-    <h2>📚 All Blogs</h2>
-    <div id="blogList"></div>
-</div>
+      <!-- 🔍 Search Blog by ID -->
+      <div id="searchSection">
+        <input type="number" id="searchId" placeholder="Enter Blog ID" />
+        <button id="searchBtn" onclick="findBlogById()">Find</button>
+      </div>
 
-<div id="toast" class="toast"></div>
+      <h2>📚 All Blogs</h2>
+      <div id="blogList"></div>
+    </div>
 
-<script src="script.js"></script>
-</body>
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
 
 <!--http://localhost:8080/index.html-->
