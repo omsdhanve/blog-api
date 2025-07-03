@@ -16,7 +16,7 @@ form.addEventListener("submit", async (e) => {
   const url = id ? `${apiBase}/${id}` : apiBase;
   const method = id ? "PUT" : "POST";
 
-  await fetch(url, {
+  const res = await fetch(url, {
     method,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(blog),
@@ -25,9 +25,7 @@ form.addEventListener("submit", async (e) => {
   form.reset();
   fetchBlogs();
 
-  showToast(
-    id ? "Blog updated successfully ✅" : "Blog created successfully 📝"
-  );
+  showToast(id ? "Blog updated ✅" : "Blog created 📝");
 });
 
 // 📥 Fetch All Blogs
@@ -40,20 +38,20 @@ async function fetchBlogs() {
     const div = document.createElement("div");
     div.className = "blog-card animate";
     div.innerHTML = `
-            <h3>${blog.title}</h3>
-            <p>${blog.content}</p>
-            <small>🆔 ID: ${blog.id} | ✍️ ${blog.author} | 🕒 ${new Date(
+      <h3>${blog.title}</h3>
+      <p>${blog.content}</p>
+      <small>🆔 ID: ${blog.id} | ✍️ ${blog.author} | 🕒 ${new Date(
       blog.createdAt
     ).toLocaleString()}</small>
-            <div class="actions">
-                <button onclick="editBlog(${blog.id}, '${blog.title}', '${
+      <div class="actions">
+          <button onclick="editBlog(${blog.id}, '${blog.title}', '${
       blog.author
     }', \`${blog.content}\`)">Edit</button>
-                <button class="delete-btn" onclick="deleteBlog(${
-                  blog.id
-                })">Delete</button>
-            </div>
-        `;
+          <button class="delete-btn" onclick="deleteBlog(${
+            blog.id
+          })">Delete</button>
+      </div>
+    `;
     blogList.appendChild(div);
   });
 }
@@ -74,50 +72,39 @@ async function deleteBlog(id) {
   showToast("Blog deleted ❌");
 }
 
-// 🔍 Find Blog By ID
-async function findBlogById() {
-  const id = document.getElementById("searchId").value;
+// 🔍 Find Blog by ID
+async function findById() {
+  const id = document.getElementById("searchId").value.trim();
   if (!id) return showToast("Please enter a valid ID");
 
   const res = await fetch(`${apiBase}/${id}`);
-  if (!res.ok) {
-    return showToast("Blog not found ❌");
-  }
+  if (!res.ok) return showToast("❌ Blog not found");
 
   const blog = await res.json();
   blogList.innerHTML = `
-        <div class="blog-card animate">
-            <h3>${blog.title}</h3>
-            <p>${blog.content}</p>
-            <small>🆔 ID: ${blog.id} | ✍️ ${blog.author} | 🕒 ${new Date(
+    <div class="blog-card animate">
+      <h3>${blog.title}</h3>
+      <p>${blog.content}</p>
+      <small>🆔 ID: ${blog.id} | ✍️ ${blog.author} | 🕒 ${new Date(
     blog.createdAt
   ).toLocaleString()}</small>
-            <div class="actions">
-                <button onclick="editBlog(${blog.id}, '${blog.title}', '${
-    blog.author
-  }', \`${blog.content}\`)">Edit</button>
-                <button class="delete-btn" onclick="deleteBlog(${
-                  blog.id
-                })">Delete</button>
-            </div>
-        </div>
-    `;
-  showToast(`Blog ID ${id} found ✅`);
+    </div>
+  `;
+  showToast("✅ Blog fetched by ID");
 }
 
-// ✅ Toast Message
+// ✅ Toast Function
 function showToast(message) {
   if (!toast) return;
   toast.textContent = message;
   toast.classList.add("show");
-
   clearTimeout(toast.hideTimeout);
   toast.hideTimeout = setTimeout(() => {
     toast.classList.remove("show");
   }, 3000);
 }
 
-// 🌙 Dark Mode
+// 🌙 Dark Mode Toggle
 darkToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   darkToggle.textContent = document.body.classList.contains("dark")
@@ -125,4 +112,5 @@ darkToggle.addEventListener("click", () => {
     : "🌙";
 });
 
+// Initial Fetch
 fetchBlogs();
